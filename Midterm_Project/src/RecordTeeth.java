@@ -46,6 +46,7 @@ public class RecordTeeth {
                 System.out.println("Please enter the " + colNames[rowIndex]  + " for " + memberName + "       : ");
                 String teethPerRow = keyboard.next();
                 // Validate user input
+
                for (colIndex = 0; colIndex < teethPerRow.length(); ++colIndex ){
                    //Why am i getting an error here?
                    dentalRecords[arrayIndex][rowIndex][colIndex] = teethPerRow.charAt(colIndex);
