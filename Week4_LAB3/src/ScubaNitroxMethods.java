@@ -15,20 +15,21 @@ public class ScubaNitroxMethods {
         boolean exceedsMaxO2Pressure, exceedsContingencyO2Pressure;
 
 
+
         //--- Retrieve values from user
         System.out.println("Enter depth and percentage O2 : ");
         diveDepth = keyboard.nextInt();
         percentOxygen = keyboard.nextInt();
 
         //Display data
-        computePPO2(diveDepth, percentOxygen);
+        double oxygenPressure = computePPO2(diveDepth, percentOxygen);
         displayWarnings(oxygenPressure);
     }
     //----------------------------------------------------------------------------------------------
-    private static void computePPO2(int diveDepth, int percentOxygen){
-
-        double ambientPressure;
+    private static double computePPO2(int diveDepth, int percentOxygen){
         double oxygenPressure;
+        double ambientPressure;
+
 
         //--- Compute pressure
         ambientPressure = (diveDepth / FEET_PER_ATM_CONSTANT) + 1;
@@ -37,8 +38,15 @@ public class ScubaNitroxMethods {
         //--- Display pressure
         System.out.println("Ambient pressure : " + ambientPressure);
         System.out.println("O2 pressure : " + oxygenPressure);
+
+        return oxygenPressure;
     }
-    private static void displayWarnings(oxygenPressure){
+    private static void displayWarnings(double oxygenPressure){
+        //Variables to hold values
+        char oxygenGroup;
+        boolean exceedsMaxO2Pressure;
+        boolean exceedsContingencyO2Pressure;
+
         //--- Compute warnings
         oxygenGroup = (char) ((int) (oxygenPressure * 10) + (int)'A');
         exceedsMaxO2Pressure = oxygenPressure > 1.4;

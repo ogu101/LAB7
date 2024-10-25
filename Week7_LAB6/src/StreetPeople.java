@@ -26,7 +26,6 @@ public class StreetPeople {
         for (houseNumbersIndex = 0; houseNumbersIndex < numHouses; houseNumbersIndex++){
             System.out.print("What is the next house number?");
             houseNumbers[houseNumbersIndex] = keyboard.nextInt();
-            .
         }// end of the for loop
 
         // Get ages for each house
